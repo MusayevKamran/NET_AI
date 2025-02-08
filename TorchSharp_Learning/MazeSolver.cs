@@ -3,8 +3,8 @@
 public class MazeSolver
 {
     private readonly int[,] _maze;
-    private int[,] _rewards;
-    private torch.Tensor _qValues;
+    private int[,]? _rewards;
+    private torch.Tensor? _qValues;
     private readonly string[] _actions = { "up", "down", "left", "right" };
 
     private const int WALL_REWARD_VALUE = -500;
@@ -44,6 +44,7 @@ public class MazeSolver
             }
         }
     }
+
     private void SetupQValues()
     {
         int mazeRows = _maze.GetLength(0);
@@ -51,10 +52,12 @@ public class MazeSolver
 
         _qValues = torch.zeros(mazeRows, mazeColumns, _actions.Length);
     }
+
     private bool HasHitWallOrEndOfMaze(int currentRow, int currentColumn)
     {
         return _rewards[currentRow, currentColumn] != FLOOR_REWARD_VALUE;
     }
+
     private long DetermineNextAction(int currentRow, int currentColumn, float epsilon)
     {
         Random random = new Random();
@@ -62,6 +65,7 @@ public class MazeSolver
         long nextAction = randomBeetwen0And1 < epsilon ? torch.argmax(_qValues[currentRow, currentColumn]).item<long>() : random.Next(_actions.Length);
         return nextAction;
     }
+
     private (int, int) MoveOneSpace(int currentRow, int currentColumn, long currentAction)
     {
         int mazeRows = _maze.GetLength(0);
@@ -89,6 +93,7 @@ public class MazeSolver
 
         return (nextRow, nextColumn);
     }
+
     public void TrainTheModel(float epsilon, float discountFactor, float learningRate, int episodes)
     {
         for (int episode = 0; episode < episodes; episode++)
@@ -116,6 +121,7 @@ public class MazeSolver
 
         Console.WriteLine("Completed training");
     }
+
     public List<int[]> NavigateMaze(int startRow, int startColumn)
     {
         List<int[]> path = new List<int[]>();
@@ -155,5 +161,39 @@ public class MazeSolver
         }
 
         return path;
+    }
+}
+
+public  class MazeSolverExecutor
+{
+    public void Run()
+    {
+        int[,] maze1 =
+        {
+            //0  1  2  3  4  5  6  7  8  9  10 11
+            { 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0 }, //row 0
+            { 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 }, //row 1
+            { 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0 }, //row 2
+            { 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0 }, //row 3
+            { 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0 }, //row 4
+            { 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0 }, //row 5
+            { 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0 }, //row 6
+            { 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0 }, //row 7
+            { 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0 }, //row 8
+            { 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0 }, //row 9
+            { 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0 }, //row 10
+            { 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 } //row 11 (start position is (11, 5))
+        };
+
+        const float EPSILON = 0.95f;
+        const float DISCOUNT_FACTOR = 0.8f;
+        const float LEARNING_RATE = 0.9f;
+        const int EPISODES = 1500;
+        const int START_ROW = 11;
+        const int START_COLUMN = 5;
+
+        MazeSolver solver = new MazeSolver(maze1);
+        solver.TrainTheModel(EPSILON, DISCOUNT_FACTOR, LEARNING_RATE, EPISODES);
+        solver.NavigateMaze(START_ROW, START_COLUMN);
     }
 }

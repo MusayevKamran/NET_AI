@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorchSharp_Learning", "TorchSharp_Learning\TorchSharp_Learning.csproj", "{FE7F09D9-735A-47EF-A608-16C525E0EC78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neural_Network_Learning", "Neural_Network_Learning\Neural_Network_Learning.csproj", "{FABF2068-48DA-4EB4-8276-EA233A664000}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{FE7F09D9-735A-47EF-A608-16C525E0EC78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE7F09D9-735A-47EF-A608-16C525E0EC78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE7F09D9-735A-47EF-A608-16C525E0EC78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FABF2068-48DA-4EB4-8276-EA233A664000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FABF2068-48DA-4EB4-8276-EA233A664000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FABF2068-48DA-4EB4-8276-EA233A664000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FABF2068-48DA-4EB4-8276-EA233A664000}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
