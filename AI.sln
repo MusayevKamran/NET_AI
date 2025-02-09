@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorchSharp_Learning", "Torc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neural_Network_Learning", "Neural_Network_Learning\Neural_Network_Learning.csproj", "{FABF2068-48DA-4EB4-8276-EA233A664000}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ml_Net_Learning", "Ml_Net_Learning\Ml_Net_Learning.csproj", "{15B2A27E-9CB3-437E-9C94-77C3794C9398}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{FABF2068-48DA-4EB4-8276-EA233A664000}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FABF2068-48DA-4EB4-8276-EA233A664000}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FABF2068-48DA-4EB4-8276-EA233A664000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B2A27E-9CB3-437E-9C94-77C3794C9398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B2A27E-9CB3-437E-9C94-77C3794C9398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B2A27E-9CB3-437E-9C94-77C3794C9398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B2A27E-9CB3-437E-9C94-77C3794C9398}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
