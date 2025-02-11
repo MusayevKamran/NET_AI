@@ -6,7 +6,7 @@ namespace Ml_Net_Learning.DataPoint;
 
 public class DataPointExecutor
 {
-    private readonly string _csvFilePath = DirectoryHelper.GetProjectRoot("data.csv");
+    private readonly string _csvFilePath = DirectoryHelper.GetFilePath("data.csv", "Csv");
 
     public void Run()
     {

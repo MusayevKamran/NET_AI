@@ -6,7 +6,7 @@ namespace Ml_Net_Learning.Housing;
 
 public class HousingExecutor
 {
-    private readonly string _csvFilePath = DirectoryHelper.GetProjectRoot("housing-data.csv");
+    private readonly string _csvFilePath = DirectoryHelper.GetFilePath("housing-data.csv", "Csv");
 
     public void Run()
     {
